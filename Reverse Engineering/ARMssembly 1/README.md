@@ -14,37 +14,37 @@ Here is the function of interest.
 
 ```arm
 func:
-	sub	sp, sp, #32
-	str	w0, [sp, 12]
-	mov	w0, 58
-	str	w0, [sp, 16]
-	mov	w0, 2
-	str	w0, [sp, 20]
-	mov	w0, 3
-	str	w0, [sp, 24]
-	ldr	w0, [sp, 20]
-	ldr	w1, [sp, 16]
-	lsl	w0, w1, w0
-	str	w0, [sp, 28]
-	ldr	w1, [sp, 28]
-	ldr	w0, [sp, 24]
-	sdiv	w0, w1, w0
-	str	w0, [sp, 28]
-	ldr	w1, [sp, 28]
-	ldr	w0, [sp, 12]
-	sub	w0, w1, w0
-	str	w0, [sp, 28]
-	ldr	w0, [sp, 28]
-	add	sp, sp, 32
-	ret
+    sub sp, sp, #32
+    str w0, [sp, 12]
+    mov w0, 58
+    str w0, [sp, 16]
+    mov w0, 2
+    str w0, [sp, 20]
+    mov w0, 3
+    str w0, [sp, 24]
+    ldr w0, [sp, 20]
+    ldr w1, [sp, 16]
+    lsl w0, w1, w0
+    str w0, [sp, 28]
+    ldr w1, [sp, 28]
+    ldr w0, [sp, 24]
+    sdiv    w0, w1, w0
+    str w0, [sp, 28]
+    ldr w1, [sp, 28]
+    ldr w0, [sp, 12]
+    sub w0, w1, w0
+    str w0, [sp, 28]
+    ldr w0, [sp, 28]
+    add sp, sp, 32
+    ret
 ```
 
 As well, we see that we win when the return value of the function is 0.
 
 ```arm
-bl	func
-cmp	w0, 0
-bne	.L4
+bl  func
+cmp w0, 0
+bne .L4
 ```
 
 Notes:
@@ -57,21 +57,21 @@ Here is the simplified pseudocode of the function (Python).
 
 ```python
 def func(var1):
-	# [sp, 12] - var1 (arg)
-	# [sp, 16] - var2
-	# [sp, 20] - var3
-	# [sp, 24] - var4
-	# [sp, 28] - var5
-	var2 = 58
-	var3 = 2
-	var4 = 3
-	# lsl	w0, w1, w0
-	var5 = var2 << var3
-	# sdiv	w0, w1, w0
-	var5 = var5 / var4
-	# sub	w0, w1, w0
-	var5 = var5 - var1
-	return var5 
+    # [sp, 12] - var1 (arg)
+    # [sp, 16] - var2
+    # [sp, 20] - var3
+    # [sp, 24] - var4
+    # [sp, 28] - var5
+    var2 = 58
+    var3 = 2
+    var4 = 3
+    # lsl   w0, w1, w0
+    var5 = var2 << var3
+    # sdiv  w0, w1, w0
+    var5 = var5 / var4
+    # sub   w0, w1, w0
+    var5 = var5 - var1
+    return var5
 ```
 
 The return value of the function is 0 when var1 = var5 at the end. So, the answer is simply the value of var5 at the end of the function, which is (58 << 2) / 3 = 77 or hex 4d.

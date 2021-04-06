@@ -14,20 +14,20 @@ Here is the code of the function we are interested in.
 
 ```arm
 func1:
-	sub	sp, sp, #16
-	str	w0, [sp, 12]
-	str	w1, [sp, 8]
-	ldr	w1, [sp, 12]
-	ldr	w0, [sp, 8]
-	cmp	w1, w0
-	bls	.L2
-	ldr	w0, [sp, 12]
-	b	.L3
+    sub sp, sp, #16
+    str w0, [sp, 12]
+    str w1, [sp, 8]
+    ldr w1, [sp, 12]
+    ldr w0, [sp, 8]
+    cmp w1, w0
+    bls .L2
+    ldr w0, [sp, 12]
+    b   .L3
 .L2:
-	ldr	w0, [sp, 8]
+    ldr w0, [sp, 8]
 .L3:
-	add	sp, sp, 16
-	ret
+    add sp, sp, 16
+    ret
 ```
 
 Notes:
@@ -41,13 +41,13 @@ After some simplifying, we have the following pseudocode (Python).
 
 ```python
 def func1(var1, var2):
-	# [sp, 12] - var1 (w0)
-	# [sp, 8] - var2 (w1)
-	if var2 <= var1:            # cmp w1, w0
-		var1 = var1             # ldr w0, [sp, 12]
-	else:
-		var1 = var2             # ldr w0, [sp, 8]
-	return var1
+    # [sp, 12] - var1 (w0)
+    # [sp, 8] - var2 (w1)
+    if var2 <= var1:            # cmp w1, w0
+        var1 = var1             # ldr w0, [sp, 12]
+    else:
+        var1 = var2             # ldr w0, [sp, 8]
+    return var1
 ```
 
 It is now clear that the function simply returns the greater of the two operands. Since our operands are 3854998744 and 915131509, we get our answer as hex e5c69cd8.
