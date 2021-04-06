@@ -57,21 +57,21 @@ Here is the simplified pseudocode of the function (Python).
 
 ```python
 def func(var1):
-    # [sp, 12] - var1 (arg)
-    # [sp, 16] - var2
-    # [sp, 20] - var3
-    # [sp, 24] - var4
-    # [sp, 28] - var5
-    var2 = 58
-    var3 = 2
-    var4 = 3
-    # lsl	w0, w1, w0
-    var5 = var2 << var3
-    # sdiv	w0, w1, w0
-    var5 = var5 / var4
-    # sub	w0, w1, w0
-    var5 = var5 - var1
-    return var5 
+	# [sp, 12] - var1 (arg)
+	# [sp, 16] - var2
+	# [sp, 20] - var3
+	# [sp, 24] - var4
+	# [sp, 28] - var5
+	var2 = 58
+	var3 = 2
+	var4 = 3
+	# lsl	w0, w1, w0
+	var5 = var2 << var3
+	# sdiv	w0, w1, w0
+	var5 = var5 / var4
+	# sub	w0, w1, w0
+	var5 = var5 - var1
+	return var5 
 ```
 
 The return value of the function is 0 when var1 = var5 at the end. So, the answer is simply the value of var5 at the end of the function, which is (58 << 2) / 3 = 77 or hex 4d.
