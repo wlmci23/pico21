@@ -30,6 +30,13 @@ func1:
 	ret
 ```
 
+Notes:
+- `w0` and `w1` are general purpose registers
+- `str` stores its first operand at the address given by its second operand
+- `ldr` loads into its first operand the data at the address given by its second operand
+- `bls` jumps to a label if the last compare was either less or the same
+- `b` is an unconditional jump
+
 After some simplifying, we have the following pseudocode (Python).
 
 ```python

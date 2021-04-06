@@ -47,6 +47,12 @@ cmp	w0, 0
 bne	.L4
 ```
 
+Notes:
+- Generally, an instruction that performs arithmetic will be of the form `op r1, r2, r3`, where `r1` is the register to store the result in and `r2` and `r3` are the operands
+- `lsl` performs a bitwise left shit
+- `sub` performs subtraction
+- `sdiv` performs signed division
+
 Here is the simplified pseudocode of the function (Python).
 
 ```python
