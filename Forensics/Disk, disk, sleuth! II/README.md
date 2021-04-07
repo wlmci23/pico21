@@ -64,7 +64,7 @@ d/d 6099:       pts
 d/d 6100:       shm
 ```
 
-We look around in these directories until we find the file with the given name. It turns out that it is in the /root/ directory, or inode 18291.
+We look around in these directories until we find the file with the given name. It turns out that it is in the /root/ directory, or inode number 18290.
 
 ```bash
 fls dds2-alpine.flag.img -o 2048 18290
@@ -74,7 +74,7 @@ fls dds2-alpine.flag.img -o 2048 18290
 r/r 18291:      down-at-the-bottom.txt
 ```
 
-Now that we've found the file, we use `icat` to extract its contents.
+Now that we've found the file (inode number 18291), we use `icat` to extract its contents.
 
 ```bash
 icat dds2-alpine.flag.img -o 2048 18291
