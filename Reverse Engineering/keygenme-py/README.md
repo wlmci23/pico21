@@ -1,4 +1,4 @@
-# keygenme-trial-py
+# keygenme-trial.py
 
 ## Description
 
@@ -11,7 +11,7 @@ File: [keygenme-trial.py.S](https://mercury.picoctf.net/static/9cc50abd5b012891d
 ## Solution
 
 First, we notice that there is already a partial flag in the code:
-```
+```python
 key_part_static1_trial = "picoCTF{1n_7h3_|<3y_of_"
 key_part_dynamic1_trial = "xxxxxxxx"
 key_part_static2_trial = "}"
@@ -21,7 +21,7 @@ key_full_template_trial = key_part_static1_trial + key_part_dynamic1_trial + key
 Given this, we should try to find other places that include these variables or similar. We find ourselves in the hashLib section later:
 
 
-```
+```python
 def check_key(key, username_trial):
 
     global key_full_template_trial
