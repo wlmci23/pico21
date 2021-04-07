@@ -1,4 +1,4 @@
-# keygenme-trial.py
+# keygenme-trial-py
 
 ## Description
 
