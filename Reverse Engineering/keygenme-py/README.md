@@ -2,7 +2,7 @@
 
 ## Description
 
-File: [keygenme-trial.py.S](https://mercury.picoctf.net/static/9cc50abd5b012891d5a1132e05f15a07/keygenme-trial.py)
+File: [keygenme-trial.py](https://mercury.picoctf.net/static/9cc50abd5b012891d5a1132e05f15a07/keygenme-trial.py)
 
 ## Hints
 
