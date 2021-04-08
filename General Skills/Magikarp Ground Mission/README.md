@@ -21,7 +21,7 @@ ctf-player@pico-chall$ cat instructions-to-2of3.txt
 Next, go to the root of all things, more succinctly `/`
 ```
 
-This pretty obviously wants us to navigate to the root directory. We do so and get the second part of the flag.
+This wants us to navigate to the root directory. We do so and get the second part of the flag.
 
 ```bash
 ctf-player@pico-chall$ cd /
