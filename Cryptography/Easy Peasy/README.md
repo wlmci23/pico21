@@ -14,28 +14,28 @@ Here is the section of interest in the program.
 
 ```python
 def encrypt(key_location):
-	ui = input("What data would you like to encrypt? ").rstrip()
-	if len(ui) == 0 or len(ui) > KEY_LEN:
-		return -1
-	start = key_location
-	stop = key_location + len(ui)
-	kf = open(KEY_FILE, "rb").read()
-	if stop >= KEY_LEN:
-		stop = stop % KEY_LEN
-		key = kf[start:] + kf[:stop]
-	else:
-		key = kf[start:stop]
-	key_location = stop
-	result = list(map(lambda p, k: "{:02x}".format(ord(p) ^ k), ui, key))
-	print("Here ya go!\n{}\n".format("".join(result)))
-	return key_location
+    ui = input("What data would you like to encrypt? ").rstrip()
+    if len(ui) == 0 or len(ui) > KEY_LEN:
+        return -1
+    start = key_location
+    stop = key_location + len(ui)
+    kf = open(KEY_FILE, "rb").read()
+    if stop >= KEY_LEN:
+        stop = stop % KEY_LEN
+	    key = kf[start:] + kf[:stop]
+    else:
+        key = kf[start:stop]
+    key_location = stop
+    result = list(map(lambda p, k: "{:02x}".format(ord(p) ^ k), ui, key))
+    print("Here ya go!\n{}\n".format("".join(result)))
+    return key_location
 ```
 
 This is a one-time pad, which is unbreakable under certain conditions. As stated in the hint, if we were allowed to encrypt some data of our choosing with the same key as the flag, we would be able to decrypt the flag. However, it doesn't look like this is the case since the location in the key is changed each time something is encrypted.
 
 ```python
 if stop >= KEY_LEN:
-	stop = stop % KEY_LEN
+    stop = stop % KEY_LEN
 ```
 
 The key here (no pun intended) is that if the key runs out, the index is reset back to the start, where the flag is encrypted. We know the length of the flag as well as the length of the key. Therefore, if we send exactly the right amount of data, we can achieve a 2-time pad.

@@ -17,7 +17,7 @@ Here is the section of the program that actually encodes the flag.
 b16 = b16_encode(flag)
 enc = ""
 for i, c in enumerate(b16):
-	enc += shift(c, key[i % len(key)])
+    enc += shift(c, key[i % len(key)])
 print(enc)
 ```
 
