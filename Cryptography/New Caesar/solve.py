@@ -9,9 +9,9 @@ LOWERCASE_OFFSET = ord('a')
 ALPHABET = string.ascii_lowercase[:16]
 
 def shift(c, k):
-	t1 = ord(c) - LOWERCASE_OFFSET
-	t2 = ord(k) - LOWERCASE_OFFSET
-	return ALPHABET[(t1 + t2) % len(ALPHABET)]
+    t1 = ord(c) - LOWERCASE_OFFSET
+    t2 = ord(k) - LOWERCASE_OFFSET
+    return ALPHABET[(t1 + t2) % len(ALPHABET)]
 
 def find(c):
     return ord(c) - LOWERCASE_OFFSET
